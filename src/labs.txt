@@ -294,13 +294,13 @@ Output:
 #
 EOF
 
-p. On the first line, enter the comment: "Using ARGV".  Save the file
+p. On the first line, enter the comment: "Using process.argv".  Save the file
 and exit the editor.  You should see ...
 
 Output:
 git commit
-Waiting for Emacs...
-[master 569aa96] Using ARGV
+Waiting for Vim...
+[master 569aa96] Using process.argv
  1 files changed, 1 insertions(+), 1 deletions(-)
 EOF
 
@@ -1170,8 +1170,8 @@ should have an email included.  Update the hello program to include an
 email.
 
 File: hello.js
-# Default is World
-# Author: Jim Weirich (jim@somewhere.com)
+// Default is World
+// Author: Jim Weirich (jim@somewhere.com)
 const name = process.argv[2] || "World"
 
 console.log(`Hello, ${name}!`);
@@ -1552,14 +1552,17 @@ p. Notice that the git status command reports that you are on the
 h2. Changes for Greet: Add a Greeter class.
 
 File: lib/greeter.js
-class Greeter
-  def initialize(who)
-    @who = who
-  end
-  def greet
-    "Hello, #{@who}"
-  end
-end
+class Greeter {
+  constructor(who) {
+    this.who = who;
+  }
+
+  greet() {
+    return `Hello, ${this.who}`;
+  }
+}
+
+module.exports.Greeter = Greeter;
 EOF
 
 Execute:
@@ -1571,13 +1574,13 @@ h2. Changes for Greet: Modify the main program
 p. Update the hello.js file to use greeter
 
 File: lib/hello.js
-require 'greeter'
+const { Greeter } = require('./greeter');
 
-# Default is World
+// Default is World
 const name = process.argv[2] || "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+const greeter = new Greeter(name);
+console.log(greeter.greet());
 EOF
 
 Execute:
@@ -1767,10 +1770,15 @@ Execute:
 git checkout master
 
 File: lib/hello.js
-console.log("What's your name");
-my_name = gets.strip
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-console.log(`Hello, ${my_name}!`);
+rl.question(`What's your name`, (myName) => {
+  console.log(`Hello ${myName}!`)
+  rl.close();
+});
 EOF
 
 Execute:
@@ -1824,20 +1832,23 @@ If you open lib/hello.js, you will see:
 
 file: lib/hello.js
 <<<<<<< HEAD
-require 'greeter'
+const { Greeter } = require('./greeter');
 
-# Default is World
+// Default is World
 const name = process.argv[2] || "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+const greeter = new Greeter(name);
+console.log(greeter.greet());
 =======
-# Default is World
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-console.log("What's your name");
-my_name = gets.strip
-
-console.log(`Hello, ${my_name}!`);
+rl.question(`What's your name`, (myName) => {
+  console.log(`Hello ${myName}!`)
+  rl.close();
+});
 >>>>>>> master
 EOF
 
@@ -1850,13 +1861,19 @@ p. You need to manually resolve the conflict.  Modify @lib/hello.js@
 to be the following.
 
 File: lib/hello.js
-require 'greeter'
+const { Greeter } = require('./greeter');
 
-console.log("What's your name");
-my_name = gets.strip
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-greeter = Greeter.new(my_name)
-puts greeter.greet
+rl.question(`What's your name`, (myName) => {
+  const greeter = new Greeter(name);
+  console.log(greeter.greet());
+
+  rl.close();
+});
 EOF
 
 h2. Commit the Conflict Resolution

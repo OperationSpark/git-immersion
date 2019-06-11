@@ -3,7 +3,7 @@ h1. Setup
 
 h2. Goals
 
-* To setup git and ruby so that it is ready for work.
+* To setup git and node so that it is ready for work.
 
 h2. Setup Name and Email
 
@@ -27,15 +27,15 @@ git config --global core.safecrlf true
 And for Windows users:
 
 execute:
-git config --global core.autocrlf true
+git config --global core.autocrlf false
 git config --global core.safecrlf true
 
-h2. Setup Ruby 
+h2. Setup Node
 
-p. For this tutorial you need a working Ruby interpreter. If you haven´t one 
-installed yet, it is time to set it up now:
+p. For this tutorial you need a working Javascript interpreter. If you haven´t one
+installed yet, it is time to set it up now with nvm:
 
-"https://www.ruby-lang.org/en/installation/":https://www.ruby-lang.org/en/installation/
+"https://github.com/nvm-sh/nvm/":https://github.com/nvm-sh/nvm/
 
 ----------------------------------------------------------------------
 h1. More Setup
@@ -67,15 +67,15 @@ h2. Goals
 h2. Create a "Hello, World" program
 
 p. Starting in the empty working directory, create an empty directory
-named "hello", then create a file named @hello.rb@ with the contents
+named "hello", then create a file named @hello.js@ with the contents
 below.
 
 Execute:
 mkdir hello
 cd hello
 
-File: hello.rb
-puts "Hello, World"
+File: hello.js
+console.log("Hello, World");
 EOF
 
 h2. Create the Repository
@@ -86,8 +86,8 @@ repository from that directory, run the git init command.
 Execute:
 git init
 =init
-+git config user.name "Jim Weirich"
-+git config user.email "jim (at) edgecase.com"
++git config user.name "Halle Bot"
++git config user.email "halle (at) operationspark.org"
 
 Output:
 =init
@@ -98,7 +98,7 @@ h2. Add the program to the repository
 Now let's add the "Hello, World" program to the repository.
 
 Execute:
-git add hello.rb
+git add hello.js
 =add
 git commit -m "First Commit"
 =commit
@@ -151,8 +151,8 @@ h2. Change the "Hello, World" program.
 p. It's time to change our hello program to take an argument from the
 command line.  Change the file to be:
 
-File: hello.rb
-puts "Hello, #{ARGV.first}!"
+File: hello.js
+console.log(`Hello, ${process.argv[2]}!`);
 EOF
 
 h2. Check the status
@@ -169,7 +169,7 @@ Output:
 =status
 EOF
 
-p. The first thing to notice is that git knows that the @hello.rb@
+p. The first thing to notice is that git knows that the @hello.js@
 file has been modified, but git has not yet been notified of these
 changes.
 
@@ -194,7 +194,7 @@ h2. Add Changes
 p. Now tell git to stage the changes.  Check the status
 
 Execute:
-git add hello.rb
+git add hello.js
 =add
 git status
 =status
@@ -206,7 +206,7 @@ Output:
 =status
 EOF
 
-p. The change to the @hello.rb@ file has been staged.  This means that
+p. The change to the @hello.js@ file has been staged.  This means that
 git now knows about the change, but the change hasn't been
 _permanently_ recorded in the repository yet.  The next commit
 operation will include the staged changes.
@@ -225,21 +225,21 @@ at the point you want to interact with source control, git allows you
 to record your changes in small commits that record exactly what you
 did.
 
-p. For example, suppose you edited three files (@a.rb@, @b.rb@, and
-@c.rb@).  Now you want to commit all the changes, but you want the
-changes in @a.rb@ and @b.rb@ to be a single commit, while the changes
-to @c.rb@ are not logically related to the first two files and should
+p. For example, suppose you edited three files (@a.js@, @b.js@, and
+@c.js@).  Now you want to commit all the changes, but you want the
+changes in @a.js@ and @b.js@ to be a single commit, while the changes
+to @c.js@ are not logically related to the first two files and should
 be a separate commit.
 
 p. You could do the following:
 
 pre(instructions).
-git add a.rb
-git add b.rb
+git add a.js
+git add b.js
 git commit -m "Changes for a and b"
 
 pre(instructions).
-git add c.rb
+git add c.js
 git commit -m "Unrelated change to c"
 
 p. By separating staging and committing, you have the ability to
@@ -258,7 +258,7 @@ p. Ok, enough about staging.  Let's commit what we have staged to the
 repository.
 
 p. When you used @git commit@ previously to commit the initial version
-of the @hello.rb@ file to the repository, you included the @-m@ flag
+of the @hello.js@ file to the repository, you included the @-m@ flag
 that gave a comment on the command line.  The commit command will
 allow you to interactively edit a comment for the commit.  Let's try
 that now.
@@ -272,13 +272,13 @@ following list (in priority order):
 * VISUAL environment variable
 * EDITOR environment variable
 
-p. I have the EDITOR variable set to @emacsclient@.
+p. I have the EDITOR variable set to @vim@.
 
 p. So commit now and check the status.
 
 Execute:
 -git commit
-+git commit -m "Using ARGV"
++git commit -m "Using process.argv"
 
 p. You should see the following in your editor:
 
@@ -290,22 +290,22 @@ Output:
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
 #
-#	modified:   hello.rb
+#	modified:   hello.js
 #
 EOF
 
-p. On the first line, enter the comment: "Using ARGV".  Save the file
+p. On the first line, enter the comment: "Using process.argv".  Save the file
 and exit the editor.  You should see ...
 
 Output:
 git commit
-Waiting for Emacs...
-[master 569aa96] Using ARGV
+Waiting for Vim...
+[master 569aa96] Using process.argv
  1 files changed, 1 insertions(+), 1 deletions(-)
 EOF
 
-p. The "Waiting for Emacs..." line comes from the @emacsclient@
-program which sends the file to a running emacs program and waits for
+p. The "Waiting for Vim..." line comes from the @vim@
+program which sends the file to a running vim program and waits for
 the file to be closed.  The rest of the output is the standard commit
 messages.
 
@@ -348,10 +348,10 @@ h2. First Change: Allow a default name
 p. Change the "Hello, World" program to have a default value if a
 command line argument is not supplied.
 
-File: hello.rb
-name = ARGV.first || "World"
+File: hello.js
+const name = process.argv[2] || "World";
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`);
 EOF
 
 h2. Add this Change
@@ -359,17 +359,17 @@ h2. Add this Change
 p. Now add this change to the git's staging area.
 
 Execute:
-git add hello.rb
+git add hello.js
 
 h2. Second change: Add a comment
 
 p. Now add a comment to the "Hello, World" program.
 
-File: hello.rb
-# Default is "World"
-name = ARGV.first || "World"
+File: hello.js
+// Default is "World"
+const name = process.argv[2] || "World";
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`);
 EOF
 
 h2. Check the current status
@@ -384,7 +384,7 @@ Output:
 =status
 EOF
 
-p. Notice how @hello.rb@ is listed twice in the status.  The first
+p. Notice how @hello.js@ is listed twice in the status.  The first
 change (adding a default) is staged and is ready to be committed.  The
 second change (adding a comment) is unstaged.  If you were to commit
 right now, the comment would not be saved in the repository.
@@ -409,7 +409,7 @@ Output:
 =status2
 EOF
 
-p. The status command is telling you that @hello.rb@ has unrecorded changes,
+p. The status command is telling you that @hello.js@ has unrecorded changes,
 but is no longer in the staging area.
 
 h2. Add the Second Change
@@ -650,13 +650,13 @@ EOF
 p. Examine the log output and find the hash for the first commit.  It
 should be the last line of the @git hist@ output.  Use that hash code
 (the first 7 characters are enough) in the command below.  Then check
-the contents of the hello.rb file.
+the contents of the hello.js file.
 
 Set: hash=hash_for("First Commit")
 Execute:
 git checkout <hash>
 =checkout
-cat hello.rb
+cat hello.js
 =cat
 
 p(note). *Note:* The commands given here are Unix commands and
@@ -679,14 +679,14 @@ p. The output of the @checkout@ command explains the situation pretty
 well.  Older versions of git will complain about not being on a local
 branch.  In any case, don't worry about that for now.
 
-p. Notice the contents of the hello.rb file are the original contents.
+p. Notice the contents of the hello.js file are the original contents.
 
 h2. Return the latest version in the master branch
 
 Execute:
 git checkout master
 =checkout2
-cat hello.rb
+cat hello.js
 =cat2
 
 p. You should see ...
@@ -700,6 +700,97 @@ p. 'master' is the name of the default branch.  By checking out a branch
 by name, you go to the latest version of that branch.
 
 ----------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+h1. Tagging versions
+
+h2. Goals
+
+* Learn how to tag commits with names for future reference
+
+p. Let's call the current version of the hello program version 1 (v1).
+
+h2. Tagging version 1
+
+Execute:
+git tag v1
+=tag
+
+p. Now you can refer to the current version of the program as v1.
+
+h2. Tagging Previous Versions
+
+p. Let's tag the version immediately prior to the current version
+v1-beta.  First we need to checkout the previous version.  Rather than
+lookup up the hash, we will use the @^@ notation to indicate "the parent
+of v1".
+
+p(note). If the @v1@^ notation gives you any trouble, you can also try
+@v1~1@, which will reference the same version.  This notation means
+"the first ancestor of v1".
+
+Execute:
+git checkout v1^
+=checkout
+cat hello.js
+=cat
+
+Output:
+=checkout
+=cat
+EOF
+
+p. See, this is the version with the default value _before_ we added
+the comment.  Let's make this v1-beta.
+
+Execute:
+git tag v1-beta
+
+h2. Checking Out by Tag Name
+
+p. Now try going back and forth between the two tagged versions.
+
+Execute:
+git checkout v1
+=cov1
+git checkout v1-beta
+=cov1beta
+
+Output:
+=cov1
+=cov1beta
+EOF
+
+h2. Viewing Tags using the @tag@ command
+
+p. You can see what tags are available using the @git tag@ command.
+
+Execute:
+git tag
+=tag2
+
+Output:
+=tag2
+EOF
+
+h2. Viewing Tags in the Logs
+
+p. You can also check for tags in the log.
+
+Execute:
+git hist master --all
+=hist
+
+Output:
+=hist
+EOF
+
+p. You can see both tags (@v1@ and @v1-beta@) listed in the log
+output, along with the branch name (@master@).  Also @HEAD@ shows you
+the currently checked out commit (which is @v1-beta@ at the moment).
+
+----------------------------------------------------------------------
+>>>>>>> 8ec2bf920388aea5aff548250b5d6d60d615b22d
 h1. Undoing Local Changes (before staging)
 
 h2. Goals
@@ -713,19 +804,19 @@ p. Make sure you are on the latest commit in master before proceeding.
 Execute:
 git checkout master
 
-h2. Change hello.rb
+h2. Change hello.js
 
 p. Sometimes you have modified a file in your local working directory
 and you wish to just revert to what has already been committed.  The
 checkout command will handle that.
 
-Change hello.rb to have a bad comment.
+Change hello.js to have a bad comment.
 
-File: hello.rb
-# This is a bad comment.  We want to revert it.
-name = ARGV.first || "World"
+File: hello.js
+// This is a bad comment.  We want to revert it.
+const name = process.argv[2] || "World"
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`);
 EOF
 
 h2. Check the Status
@@ -740,20 +831,20 @@ Output:
 =status
 EOF
 
-p. We see that the @hello.rb@ file has been modified, but hasn't been
+p. We see that the @hello.js@ file has been modified, but hasn't been
 staged yet.
 
 h2. Revert the changes in the working directory
 
 p. Use the @checkout@ command to checkout the repository's version of
-the @hello.rb@ file.
+the @hello.js@ file.
 
 Execute:
-git checkout hello.rb
+git checkout hello.js
 =checkout
 !git status
 =status2
-cat hello.rb
+cat hello.js
 =cat
 
 Output:
@@ -775,19 +866,19 @@ h2. Goals
 
 h2. Change the file and stage the change
 
-p. Modify the @hello.rb@ file to have a bad comment
+p. Modify the @hello.js@ file to have a bad comment
 
-File: hello.rb
-# This is an unwanted but staged comment
-name = ARGV.first || "World"
+File: hello.js
+// This is an unwanted but staged comment
+const name = process.argv[2] || "World"
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`);
 EOF
 
 p. And then go ahead and stage it.
 
 Execute:
-git add hello.rb
+git add hello.js
 
 h2. Check the Status
 
@@ -810,7 +901,7 @@ p. Fortunately the status output tells us exactly what we need to do
 to unstage the change.
 
 Execute:
-git reset HEAD hello.rb
+git reset HEAD hello.js
 =reset
 
 Output:
@@ -828,7 +919,7 @@ the unwanted change from the working directory.
 h2. Checkout the Committed Version
 
 Execute:
-git checkout hello.rb
+git checkout hello.js
 git status
 =status2
 
@@ -857,17 +948,17 @@ reverses the unwanted changes.
 
 h2. Change the file and commit it.
 
-p. Change the @hello.rb@ file to the following.
+p. Change the @hello.js@ file to the following.
 
-File: hello.rb
-# This is an unwanted but committed change
-name = ARGV.first || "World"
+File: hello.js
+// This is an unwanted but committed change
+const name = process.argv[2] || "World"
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`);
 EOF
 
 Execute:
-git add hello.rb
+git add hello.js
 git commit -m "Oops, we didn't want this commit"
 
 h2. Create a Reverting Commit
@@ -1063,16 +1154,16 @@ h2. Change the program then commit
 
 p. Add an author comment to the program.
 
-File: hello.rb
-# Default is World
-# Author: Jim Weirich
-name = ARGV.first || "World"
+File: hello.js
+// Default is World
+// Author: Jim Weirich
+const name = process.argv[2] || "World"
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`)
 EOF
 
 Execute:
-git add hello.rb
+git add hello.js
 git commit -m "Add an author comment"
 
 h2. Oops, Should have an Email
@@ -1081,12 +1172,12 @@ p. After you make the commit, you realize that any good author comment
 should have an email included.  Update the hello program to include an
 email.
 
-File: hello.rb
-# Default is World
-# Author: Jim Weirich (jim@somewhere.com)
-name = ARGV.first || "World"
+File: hello.js
+// Default is World
+// Author: Jim Weirich (jim@somewhere.com)
+const name = process.argv[2] || "World"
 
-puts "Hello, #{name}!"
+console.log(`Hello, ${name}!`);
 EOF
 
 h2. Amend the Previous Commit
@@ -1095,7 +1186,7 @@ p. We really don't want a separate commit for just the email.  Let's
 amend the previous commit to include the email change.
 
 Execute:
-git add hello.rb
+git add hello.js
 =add
 git commit --amend -m "Add an author/email comment"
 =commit
@@ -1128,7 +1219,7 @@ h2. Goals
 
 * Learn how to move a file within a repository.
 
-h2. Move the hello.rb file into a lib directory.
+h2. Move the hello.js file into a lib directory.
 
 p. We are now going to build up the structure of our little
 repository.  Let's move the program into a lib directory.
@@ -1136,7 +1227,7 @@ repository.  Let's move the program into a lib directory.
 Execute:
 mkdir lib
 =mkdir
-git mv hello.rb lib
+git mv hello.js lib
 =move
 !git status
 =status
@@ -1149,8 +1240,8 @@ EOF
 
 p. By using git to do the move, we inform git of 2 things
 
-# That the file @hello.rb@ has been deleted.
-# The file @lib/hello.rb@ has been created.
+# That the file @hello.js@ has been deleted.
+# The file @lib/hello.js@ has been created.
 
 p. Both of these bits of information are immediately staged and ready
 to be committed.  The git status command reports that the file has been
@@ -1169,16 +1260,16 @@ just did.  It's a bit more work, but the result is the same.
 p(command). We could have done:
 
 pre(instructions). mkdir lib
-mv hello.rb lib
-git add lib/hello.rb
-git rm hello.rb
+mv hello.js lib
+git add lib/hello.js
+git rm hello.js
 
 h2. Commit the new directory
 
 p. Let's commit this move.
 
 Execute:
-git commit -m "Moved hello.rb to lib"
+git commit -m "Moved hello.js to lib"
 
 ----------------------------------------------------------------------
 h1. More Structure
@@ -1413,9 +1504,9 @@ Output:
 =libdump
 EOF
 
-p. There's the @hello.rb@ file.
+p. There's the @hello.js@ file.
 
-h2. Dumping the @hello.rb@ file
+h2. Dumping the @hello.js@ file
 
 Set: rbhash=hash_in(var['libhash'], 'hello')
 Execute:
@@ -1433,7 +1524,7 @@ it, blobs, trees and commits.
 h2. Explore On You Own
 
 p. Explore the git repo manually on your own.  See if you can find the
-original hello.rb file from the very first commit by manually
+original hello.js file from the very first commit by manually
 following the SHA1 hash references starting in the latest commit.
 
 ----------------------------------------------------------------------
@@ -1463,37 +1554,40 @@ p. Notice that the git status command reports that you are on the
 
 h2. Changes for Greet: Add a Greeter class.
 
-File: lib/greeter.rb
-class Greeter
-  def initialize(who)
-    @who = who
-  end
-  def greet
-    "Hello, #{@who}"
-  end
-end
+File: lib/greeter.js
+class Greeter {
+  constructor(who) {
+    this.who = who;
+  }
+
+  greet() {
+    return `Hello, ${this.who}`;
+  }
+}
+
+module.exports.Greeter = Greeter;
 EOF
 
 Execute:
-git add lib/greeter.rb
+git add lib/greeter.js
 git commit -m "Added greeter class"
 
 h2. Changes for Greet: Modify the main program
 
-p. Update the hello.rb file to use greeter
+p. Update the hello.js file to use greeter
 
-File: lib/hello.rb
-require 'greeter'
+File: lib/hello.js
+const { Greeter } = require('./greeter');
 
-# Default is World
-name = ARGV.first || "World"
+// Default is World
+const name = process.argv[2] || "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+const greeter = new Greeter(name);
+console.log(greeter.greet());
 EOF
 
 Execute:
-git add lib/hello.rb
+git add lib/hello.js
 git commit -m "Hello uses Greeter"
 
 h2. Changes for Greet: Update the Rakefile
@@ -1506,7 +1600,7 @@ File: Rakefile
 task :default => :run
 
 task :run do
-  ruby '-Ilib', 'lib/hello.rb'
+  ruby '-Ilib', 'lib/hello.js'
 end
 EOF
 
@@ -1543,7 +1637,7 @@ p. Just use the @git checkout@ command to switch between branches.
 Execute:
 git checkout master
 =checkout
-cat lib/hello.rb
+cat lib/hello.js
 =cat
 
 Output:
@@ -1552,14 +1646,14 @@ Output:
 EOF
 
 p. You are now on the master branch.  You can tell because the
-hello.rb file doesn't use the @Greeter@ class.
+hello.js file doesn't use the @Greeter@ class.
 
 h2. Switch Back to the Greet Branch.
 
 Execute:
 git checkout greet
 =checkout2
-cat lib/hello.rb
+cat lib/hello.js
 =cat2
 
 Output:
@@ -1567,7 +1661,7 @@ Output:
 =cat2
 EOF
 
-p. The contents of the @lib/hello.rb@ confirms we are back on the
+p. The contents of the @lib/hello.js@ confirms we are back on the
 *greet* branch.
 
 ----------------------------------------------------------------------
@@ -1678,15 +1772,20 @@ p. Switch back to the master branch and make this change:
 Execute:
 git checkout master
 
-File: lib/hello.rb
-puts "What's your name"
-my_name = gets.strip
+File: lib/hello.js
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-puts "Hello, #{my_name}!"
+rl.question(`What's your name`, (myName) => {
+  console.log(`Hello ${myName}!`)
+  rl.close();
+});
 EOF
 
 Execute:
-git add lib/hello.rb
+git add lib/hello.js
 git commit -m "Made interactive"
 
 h2. View the Branches
@@ -1727,29 +1826,32 @@ Output:
 $ git checkout greet
 Switched to branch 'greet'
 $ git merge master
-Auto-merging lib/hello.rb
-CONFLICT (content): Merge conflict in lib/hello.rb
+Auto-merging lib/hello.js
+CONFLICT (content): Merge conflict in lib/hello.js
 Automatic merge failed; fix conflicts and then commit the result.
 EOF
 
-If you open lib/hello.rb, you will see:
+If you open lib/hello.js, you will see:
 
-file: lib/hello.rb
+file: lib/hello.js
 <<<<<<< HEAD
-require 'greeter'
+const { Greeter } = require('./greeter');
 
-# Default is World
-name = ARGV.first || "World"
+// Default is World
+const name = process.argv[2] || "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+const greeter = new Greeter(name);
+console.log(greeter.greet());
 =======
-# Default is World
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-puts "What's your name"
-my_name = gets.strip
-
-puts "Hello, #{my_name}!"
+rl.question(`What's your name`, (myName) => {
+  console.log(`Hello ${myName}!`)
+  rl.close();
+});
 >>>>>>> master
 EOF
 
@@ -1758,23 +1860,29 @@ p. The first section is the version on the head of the current branch
 
 h2. Fix the Conflict
 
-p. You need to manually resolve the conflict.  Modify @lib/hello.rb@
+p. You need to manually resolve the conflict.  Modify @lib/hello.js@
 to be the following.
 
-File: lib/hello.rb
-require 'greeter'
+File: lib/hello.js
+const { Greeter } = require('./greeter');
 
-puts "What's your name"
-my_name = gets.strip
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-greeter = Greeter.new(my_name)
-puts greeter.greet
+rl.question(`What's your name`, (myName) => {
+  const greeter = new Greeter(name);
+  console.log(greeter.greet());
+
+  rl.close();
+});
 EOF
 
 h2. Commit the Conflict Resolution
 
 Execute:
-git add lib/hello.rb
+git add lib/hello.js
 =add
 git commit -m "Merged master fixed conflict."
 =commit

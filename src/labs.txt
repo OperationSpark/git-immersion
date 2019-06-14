@@ -1743,15 +1743,6 @@ EOF
 If you open lib/hello.js, you will see:
 
 file: lib/hello.js
-<<<<<<< HEAD
-const { Greeter } = require('./greeter');
-
-// Default is World
-const name = process.argv[2] || "World"
-
-const greeter = new Greeter(name);
-console.log(greeter.greet());
-=======
 const rl = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
@@ -1761,7 +1752,6 @@ rl.question(`What's your name`, (myName) => {
   console.log(`Hello ${myName}!`)
   rl.close();
 });
->>>>>>> master
 EOF
 
 p. The first section is the version on the head of the current branch

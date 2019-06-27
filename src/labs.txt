@@ -1617,6 +1617,8 @@ EOF
 
 If you open lib/hello.js, you will see:
 
+<!-- #########  DO NOT FIX THIS MERGE CONFLICT ########### -->
+
 file: lib/hello.js
 <<<<<<< HEAD
 const { Greeter } = require('./greeter');
@@ -1638,7 +1640,7 @@ rl.question(`What's your name`, (myName) => {
 });
 >>>>>>> master
 EOF
-
+<!-- ^^^^^^^^^  DO NOT FIX THIS MERGE CONFLICT ^^^^^^^^^ -->
 p. The first section is the version on the head of the current branch
 (greet).  The second section is the version on the master branch.
 

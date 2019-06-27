@@ -105,10 +105,10 @@
 <p class="note"><strong>Note:</strong> You did remember to define <code>hist</code> in your <code>.gitconfig</code> file, right?  If not, review the lab on aliases.</p>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist
-* 5b16eb4 2019-06-27 | Added a comment (HEAD -&gt; master) [Halle Bot]
-* efb122a 2019-06-27 | Added a default value [Halle Bot]
-* e5f7c24 2019-06-27 | Using process.argv [Halle Bot]
-* 3c56dd7 2019-06-27 | First Commit [Halle Bot]</pre>
+* 59992ce 2019-06-27 | Added a comment (HEAD -&gt; master) [Halle Bot]
+* 20a6c79 2019-06-27 | Added a default value [Halle Bot]
+* 6915d41 2019-06-27 | Using process.argv [Halle Bot]
+* 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
 <p>Examine the log output and find the hash for the first commit.  It should be the last line of the <code>git hist</code> output.  Use that hash code (the first 7 characters are enough) in the command below.  Then check the contents of the hello.js file.</p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git checkout &lt;hash&gt;
@@ -117,8 +117,8 @@ cat hello.js</pre>
 <p class="note"><strong>Note:</strong> Many commands depend on the hash values in the repository.  Since your hash values will vary from mine, whenever you see something like &lt;hash&gt; or &lt;treehash&gt; in the command, substitute in the proper hash value for your repository.</p>
 <p>You should see &#8230;</p>
 <h3><b>Output:</b></h3>
-<pre class="sample">$ git checkout 3c56dd7
-Note: checking out '3c56dd7'.
+<pre class="sample">$ git checkout 284070d
+Note: checking out '284070d'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -129,7 +129,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b &lt;new-branch-name&gt;
 
-HEAD is now at 3c56dd7 First Commit
+HEAD is now at 284070d First Commit
 $ cat hello.js
 console.log("Hello, World");
 </pre>
@@ -142,7 +142,7 @@ cat hello.js</pre>
 <p>You should see &#8230;</p>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git checkout master
-Previous HEAD position was 3c56dd7 First Commit
+Previous HEAD position was 284070d First Commit
 Switched to branch 'master'
 $ cat hello.js
 // Default is "World"

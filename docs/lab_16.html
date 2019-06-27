@@ -119,8 +119,8 @@ git commit -m "Oops, we didn't want this commit"</pre>
 <p>This will pop you into the editor.  You can edit the default commit message or leave it as is.  Save and close the file. You should see &#8230;</p>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git revert HEAD --no-edit
-[master fca1cd3] Revert "Oops, we didn't want this commit"
- Date: Thu Jun 27 13:22:21 2019 -0500
+[master 654f128] Revert "Oops, we didn't want this commit"
+ Date: Thu Jun 27 14:45:18 2019 -0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 </pre>
 <p>Since we were undoing the very last commit we made, we were able to use <code>HEAD</code> as the argument to revert.  We can revert any arbitrary commit earlier in history by simply specifying its hash value.</p>
@@ -131,12 +131,12 @@ git commit -m "Oops, we didn't want this commit"</pre>
 <pre class="instructions">git hist</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist
-* fca1cd3 2019-06-27 | Revert "Oops, we didn't want this commit" (HEAD -&gt; master) [Halle Bot]
-* 9f83c0f 2019-06-27 | Oops, we didn't want this commit [Halle Bot]
-* 5b16eb4 2019-06-27 | Added a comment (tag: v1) [Halle Bot]
-* efb122a 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
-* e5f7c24 2019-06-27 | Using process.argv [Halle Bot]
-* 3c56dd7 2019-06-27 | First Commit [Halle Bot]</pre>
+* 654f128 2019-06-27 | Revert "Oops, we didn't want this commit" (HEAD -&gt; master) [Halle Bot]
+* 982fd79 2019-06-27 | Oops, we didn't want this commit [Halle Bot]
+* 59992ce 2019-06-27 | Added a comment (tag: v1) [Halle Bot]
+* 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
+* 6915d41 2019-06-27 | Using process.argv [Halle Bot]
+* 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
 <p>This technique will work with any commit (although you may have to resolve conflicts).  It is safe to use even on branches that are publicly shared on remote repositories.</p>
 <h2>Up Next</h2>
 <p>Next, let&#8217;s look at a technique that can be used to remove the most recent commits from the repository history.</p>

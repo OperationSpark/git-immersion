@@ -127,8 +127,8 @@ git commit --amend -m "Add an author/email comment"</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git add hello.js
 $ git commit --amend -m "Add an author/email comment"
-[master 091e8b3] Add an author/email comment
- Date: Thu Jun 27 13:22:22 2019 -0500
+[master 4535421] Add an author/email comment
+ Date: Thu Jun 27 14:45:19 2019 -0500
  1 file changed, 3 insertions(+), 2 deletions(-)
 </pre>
 <h2>Review the History</h2>
@@ -136,11 +136,11 @@ $ git commit --amend -m "Add an author/email comment"
 <pre class="instructions">git hist</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist
-* 091e8b3 2019-06-27 | Add an author/email comment (HEAD -&gt; master) [Halle Bot]
-* 5b16eb4 2019-06-27 | Added a comment (tag: v1) [Halle Bot]
-* efb122a 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
-* e5f7c24 2019-06-27 | Using process.argv [Halle Bot]
-* 3c56dd7 2019-06-27 | First Commit [Halle Bot]</pre>
+* 4535421 2019-06-27 | Add an author/email comment (HEAD -&gt; master) [Halle Bot]
+* 59992ce 2019-06-27 | Added a comment (tag: v1) [Halle Bot]
+* 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
+* 6915d41 2019-06-27 | Using process.argv [Halle Bot]
+* 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
 <p>We can see the original &#8220;author&#8221; commit is now gone, and it is replaced by the &#8220;author/email&#8221; commit.  You can achieve the same effect by resetting the branch back one commit and then recommitting the new changes.</p>
         <nav class="foot-navigation">
       <a href="lab_18.html">

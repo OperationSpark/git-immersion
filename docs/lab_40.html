@@ -106,20 +106,20 @@ git hist --all</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git fetch
 From /Users/opsparkowl/Documents/opspark/dev_shop/git-immersion/auto/hello
-   df6bf2e..37ec79c  master     -&gt; origin/master
+   c6d9ed3..21df587  master     -&gt; origin/master
 $ git hist --all
-* 37ec79c 2019-06-27 | Changed README in original repo (origin/master, origin/HEAD) [Halle Bot]
-* df6bf2e 2019-06-27 | Updated package (HEAD -&gt; master, origin/greet) [Halle Bot]
-* 4e6e575 2019-06-27 | Hello uses Greeter [Halle Bot]
-* 0160383 2019-06-27 | Added greeter class [Halle Bot]
-* 9391b1f 2019-06-27 | Added README [Halle Bot]
-* acb842b 2019-06-27 | Added a package.json. [Halle Bot]
-* 3a6c463 2019-06-27 | Moved hello.js to lib [Halle Bot]
-* 091e8b3 2019-06-27 | Add an author/email comment [Halle Bot]
-* 5b16eb4 2019-06-27 | Added a comment (tag: v1) [Halle Bot]
-* efb122a 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
-* e5f7c24 2019-06-27 | Using process.argv [Halle Bot]
-* 3c56dd7 2019-06-27 | First Commit [Halle Bot]</pre>
+* 21df587 2019-06-27 | Changed README in original repo (origin/master, origin/HEAD) [Halle Bot]
+* c6d9ed3 2019-06-27 | Updated package (HEAD -&gt; master, origin/greet) [Halle Bot]
+* 56af19d 2019-06-27 | Hello uses Greeter [Halle Bot]
+* 1e7679d 2019-06-27 | Added greeter class [Halle Bot]
+* 3aa3064 2019-06-27 | Added README [Halle Bot]
+* 2b04803 2019-06-27 | Added a package.json. [Halle Bot]
+* b65b430 2019-06-27 | Moved hello.js to lib [Halle Bot]
+* 4535421 2019-06-27 | Add an author/email comment [Halle Bot]
+* 59992ce 2019-06-27 | Added a comment (tag: v1) [Halle Bot]
+* 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
+* 6915d41 2019-06-27 | Using process.argv [Halle Bot]
+* 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
 <p>At this point the repository has all the commits from the original repository, but they are not integrated into the the cloned repository&#8217;s local branches.</p>
 <p>Find the &#8220;Changed <span class="caps">README</span> in original repo&#8221; commit in the history above.  Notice that the commit includes &#8220;origin/master&#8221; and &#8220;origin/<span class="caps">HEAD</span>&#8221;.</p>
 <p>Now look at the &#8220;Updated package.json&#8221; commit.  You will see that it the local master branch points to this commit, not to the new commit that we just fetched.</p>

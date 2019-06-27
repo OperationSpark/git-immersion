@@ -73,10 +73,6 @@ module RunLabs
           code = $2
           var[vname] = eval(code)
           puts "SETTING: #{vname}='#{var[vname]}' (from #{code})"
-        
-        
-        elsif line =~ /^Comment:\s*.+$/
-          puts ""
         elsif line =~ /^Freeze\s*$/
           freeze_lab(lab_number)
         else

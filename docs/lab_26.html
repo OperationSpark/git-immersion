@@ -59,16 +59,16 @@
   <li id="lab_21_link"><a href="lab_21.html">More Structure</a></li>
   <li id="lab_22_link"><a href="lab_22.html">Creating a Branch</a></li>
   <li id="lab_23_link"><a href="lab_23.html">Navigating Branches</a></li>
-  <li id="lab_24_link"><a href="lab_24.html">Changes in Master</a></li>
+  <li id="lab_24_link"><a href="lab_24.html">Changes in Main</a></li>
   <li id="lab_25_link"><a href="lab_25.html">Viewing Diverging Branches</a></li>
   <li id="lab_26_link"><a href="lab_26.html">Merging</a></li>
   <li id="lab_27_link"><a href="lab_27.html">Creating a Conflict</a></li>
   <li id="lab_28_link"><a href="lab_28.html">Resolving Conflicts</a></li>
   <li id="lab_29_link"><a href="lab_29.html">Rebasing VS Merging</a></li>
   <li id="lab_30_link"><a href="lab_30.html">Resetting the Greet Branch</a></li>
-  <li id="lab_31_link"><a href="lab_31.html">Resetting the Master Branch</a></li>
+  <li id="lab_31_link"><a href="lab_31.html">Resetting the Main Branch</a></li>
   <li id="lab_32_link"><a href="lab_32.html">Rebasing</a></li>
-  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Master</a></li>
+  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Main</a></li>
   <li id="lab_34_link"><a href="lab_34.html">Multiple Repositories</a></li>
   <li id="lab_35_link"><a href="lab_35.html">Cloning Repositories</a></li>
   <li id="lab_36_link"><a href="lab_36.html">Review the Cloned Repository</a></li>
@@ -99,23 +99,23 @@
 	<li>Learn how to merge two diverging branches to bring the changes back into a single branch.</li>
 </ul>
 <h2>Merge the branches</h2>
-<p>Merging brings the changes in two branches together.  Let&#8217;s go back to the greet branch and merge master onto greet.</p>
+<p>Merging brings the changes in two branches together.  Let&#8217;s go back to the greet branch and merge main onto greet.</p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git checkout greet
-git merge master
+git merge main
 git hist --all</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git checkout greet
 Switched to branch 'greet'
-$ git merge master
+$ git merge main
 Merge made by the 'recursive' strategy.
  README | 1 +
  1 file changed, 1 insertion(+)
  create mode 100644 README
 $ git hist --all
-*   8c53c97 2019-06-27 | Merge branch 'master' into greet (HEAD -&gt; greet) [Halle Bot]
+*   8c53c97 2019-06-27 | Merge branch 'main' into greet (HEAD -&gt; greet) [Halle Bot]
 |\  
-| * 3aa3064 2019-06-27 | Added README (master) [Halle Bot]
+| * 3aa3064 2019-06-27 | Added README (main) [Halle Bot]
 * | f52644d 2019-06-27 | Updated package [Halle Bot]
 * | 455c54f 2019-06-27 | Hello uses Greeter [Halle Bot]
 * | 4fb8bde 2019-06-27 | Added greeter class [Halle Bot]
@@ -127,10 +127,10 @@ $ git hist --all
 * 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
 * 6915d41 2019-06-27 | Using process.argv [Halle Bot]
 * 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
-<p>By merging master into your greet branch periodically, you can pick up any changes to master and keep your changes in greet compatible with changes in the mainline.</p>
+<p>By merging main into your greet branch periodically, you can pick up any changes to main and keep your changes in greet compatible with changes in the mainline.</p>
 <p>However, it does produce ugly commit graphs. Later we will look at the option of rebasing rather than merging.</p>
 <h2>Up Next</h2>
-<p>But first, what if the changes in master conflict with the changes in greet?</p>
+<p>But first, what if the changes in main conflict with the changes in greet?</p>
         <nav class="foot-navigation">
       <a href="lab_25.html">
       <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>

@@ -59,16 +59,16 @@
   <li id="lab_21_link"><a href="lab_21.html">More Structure</a></li>
   <li id="lab_22_link"><a href="lab_22.html">Creating a Branch</a></li>
   <li id="lab_23_link"><a href="lab_23.html">Navigating Branches</a></li>
-  <li id="lab_24_link"><a href="lab_24.html">Changes in Master</a></li>
+  <li id="lab_24_link"><a href="lab_24.html">Changes in Main</a></li>
   <li id="lab_25_link"><a href="lab_25.html">Viewing Diverging Branches</a></li>
   <li id="lab_26_link"><a href="lab_26.html">Merging</a></li>
   <li id="lab_27_link"><a href="lab_27.html">Creating a Conflict</a></li>
   <li id="lab_28_link"><a href="lab_28.html">Resolving Conflicts</a></li>
   <li id="lab_29_link"><a href="lab_29.html">Rebasing VS Merging</a></li>
   <li id="lab_30_link"><a href="lab_30.html">Resetting the Greet Branch</a></li>
-  <li id="lab_31_link"><a href="lab_31.html">Resetting the Master Branch</a></li>
+  <li id="lab_31_link"><a href="lab_31.html">Resetting the Main Branch</a></li>
   <li id="lab_32_link"><a href="lab_32.html">Rebasing</a></li>
-  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Master</a></li>
+  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Main</a></li>
   <li id="lab_34_link"><a href="lab_34.html">Multiple Repositories</a></li>
   <li id="lab_35_link"><a href="lab_35.html">Cloning Repositories</a></li>
   <li id="lab_36_link"><a href="lab_36.html">Review the Cloned Repository</a></li>
@@ -104,7 +104,7 @@
 <pre class="instructions">git hist --all</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist --all
-* 3aa3064 2019-06-27 | Added README (HEAD -&gt; master) [Halle Bot]
+* 3aa3064 2019-06-27 | Added README (HEAD -&gt; main) [Halle Bot]
 | * f52644d 2019-06-27 | Updated package (greet) [Halle Bot]
 | * 455c54f 2019-06-27 | Hello uses Greeter [Halle Bot]
 | * 4fb8bde 2019-06-27 | Added greeter class [Halle Bot]
@@ -116,7 +116,7 @@
 * 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
 * 6915d41 2019-06-27 | Using process.argv [Halle Bot]
 * 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
-<p>Here is our first chance to see the <code>--graph</code> option on <code>git hist</code> in action. Adding the <code>--graph</code> option to <code>git log</code> causes it to draw the commit tree using simple <span class="caps">ASCII</span> characters.  We can see both branches (greet and master), and that the master branch is the current <span class="caps">HEAD</span>. The common ancestor to both branches is the &#8220;Added a Rakefile&#8221; branch.</p>
+<p>Here is our first chance to see the <code>--graph</code> option on <code>git hist</code> in action. Adding the <code>--graph</code> option to <code>git log</code> causes it to draw the commit tree using simple <span class="caps">ASCII</span> characters.  We can see both branches (greet and main), and that the main branch is the current <span class="caps">HEAD</span>. The common ancestor to both branches is the &#8220;Added a Rakefile&#8221; branch.</p>
 <p>The <code>--all</code> flag makes sure that we see all the branches.  The default is to show only the current branch.</p>
         <nav class="foot-navigation">
       <a href="lab_24.html">

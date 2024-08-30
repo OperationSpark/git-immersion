@@ -59,16 +59,16 @@
   <li id="lab_21_link"><a href="lab_21.html">More Structure</a></li>
   <li id="lab_22_link"><a href="lab_22.html">Creating a Branch</a></li>
   <li id="lab_23_link"><a href="lab_23.html">Navigating Branches</a></li>
-  <li id="lab_24_link"><a href="lab_24.html">Changes in Master</a></li>
+  <li id="lab_24_link"><a href="lab_24.html">Changes in Main</a></li>
   <li id="lab_25_link"><a href="lab_25.html">Viewing Diverging Branches</a></li>
   <li id="lab_26_link"><a href="lab_26.html">Merging</a></li>
   <li id="lab_27_link"><a href="lab_27.html">Creating a Conflict</a></li>
   <li id="lab_28_link"><a href="lab_28.html">Resolving Conflicts</a></li>
   <li id="lab_29_link"><a href="lab_29.html">Rebasing VS Merging</a></li>
   <li id="lab_30_link"><a href="lab_30.html">Resetting the Greet Branch</a></li>
-  <li id="lab_31_link"><a href="lab_31.html">Resetting the Master Branch</a></li>
+  <li id="lab_31_link"><a href="lab_31.html">Resetting the Main Branch</a></li>
   <li id="lab_32_link"><a href="lab_32.html">Rebasing</a></li>
-  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Master</a></li>
+  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Main</a></li>
   <li id="lab_34_link"><a href="lab_34.html">Multiple Repositories</a></li>
   <li id="lab_35_link"><a href="lab_35.html">Cloning Repositories</a></li>
   <li id="lab_36_link"><a href="lab_36.html">Review the Cloned Repository</a></li>
@@ -93,19 +93,19 @@
       </div>
 
       <div id="content" tabindex="-1">
-        <h1 class="lab_title"><em>lab 31</em>  Resetting the Master Branch</h1>
+        <h1 class="lab_title"><em>lab 31</em>  Resetting the Main Branch</h1>
 <h2>Goals</h2>
 <ul>
-	<li>Reset the master branch to the point before the conflicting commit.</li>
+	<li>Reset the main branch to the point before the conflicting commit.</li>
 </ul>
-<h2>Reset the master branch</h2>
-<p>When we added the interactive mode to the master branch, we made a change that conflicted with changes in the greet branch. Let&#8217;s rewind the master branch to a point before the conflicting change.  This allows us to demonstrate the rebase command without worrying about conflicts.</p>
+<h2>Reset the main branch</h2>
+<p>When we added the interactive mode to the main branch, we made a change that conflicted with changes in the greet branch. Let&#8217;s rewind the main branch to a point before the conflicting change.  This allows us to demonstrate the rebase command without worrying about conflicts.</p>
 <h3><b>Execute:</b></h3>
-<pre class="instructions">git checkout master
+<pre class="instructions">git checkout main
 git hist</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist
-* 3c663d0 2019-06-27 | Made interactive (HEAD -&gt; master) [Halle Bot]
+* 3c663d0 2019-06-27 | Made interactive (HEAD -&gt; main) [Halle Bot]
 * 3aa3064 2019-06-27 | Added README [Halle Bot]
 * 2b04803 2019-06-27 | Added a package.json. [Halle Bot]
 * b65b430 2019-06-27 | Moved hello.js to lib [Halle Bot]
@@ -114,14 +114,14 @@ git hist</pre>
 * 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
 * 6915d41 2019-06-27 | Using process.argv [Halle Bot]
 * 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
-<p>The &#8216;Added <span class="caps">README</span>&#8217; commit is the one directly before the conflicting interactive mode.  We will reset the master branch to &#8216;Added <span class="caps">README</span>&#8217; branch.</p>
+<p>The &#8216;Added <span class="caps">README</span>&#8217; commit is the one directly before the conflicting interactive mode.  We will reset the main branch to &#8216;Added <span class="caps">README</span>&#8217; branch.</p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git reset --hard &lt;hash&gt;
 git hist --all</pre>
 <p>Review the log.  It should look like the repository has been wound back in time to the point before we merged anything.</p>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist --all
-* 3aa3064 2019-06-27 | Added README (HEAD -&gt; master) [Halle Bot]
+* 3aa3064 2019-06-27 | Added README (HEAD -&gt; main) [Halle Bot]
 | * f52644d 2019-06-27 | Updated package (greet) [Halle Bot]
 | * 455c54f 2019-06-27 | Hello uses Greeter [Halle Bot]
 | * 4fb8bde 2019-06-27 | Added greeter class [Halle Bot]

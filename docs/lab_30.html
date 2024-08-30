@@ -59,16 +59,16 @@
   <li id="lab_21_link"><a href="lab_21.html">More Structure</a></li>
   <li id="lab_22_link"><a href="lab_22.html">Creating a Branch</a></li>
   <li id="lab_23_link"><a href="lab_23.html">Navigating Branches</a></li>
-  <li id="lab_24_link"><a href="lab_24.html">Changes in Master</a></li>
+  <li id="lab_24_link"><a href="lab_24.html">Changes in Main</a></li>
   <li id="lab_25_link"><a href="lab_25.html">Viewing Diverging Branches</a></li>
   <li id="lab_26_link"><a href="lab_26.html">Merging</a></li>
   <li id="lab_27_link"><a href="lab_27.html">Creating a Conflict</a></li>
   <li id="lab_28_link"><a href="lab_28.html">Resolving Conflicts</a></li>
   <li id="lab_29_link"><a href="lab_29.html">Rebasing VS Merging</a></li>
   <li id="lab_30_link"><a href="lab_30.html">Resetting the Greet Branch</a></li>
-  <li id="lab_31_link"><a href="lab_31.html">Resetting the Master Branch</a></li>
+  <li id="lab_31_link"><a href="lab_31.html">Resetting the Main Branch</a></li>
   <li id="lab_32_link"><a href="lab_32.html">Rebasing</a></li>
-  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Master</a></li>
+  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Main</a></li>
   <li id="lab_34_link"><a href="lab_34.html">Multiple Repositories</a></li>
   <li id="lab_35_link"><a href="lab_35.html">Cloning Repositories</a></li>
   <li id="lab_36_link"><a href="lab_36.html">Review the Cloned Repository</a></li>
@@ -99,8 +99,8 @@
 	<li>Reset the greet branch to the point before the first merge.</li>
 </ul>
 <h2>Reset the greet branch</h2>
-<p>Let&#8217;s go back in time on the greet branch to the point <em>before</em> we merged master onto it.  We can <strong>reset</strong> a branch to any commit we want. Essentially this is modifying the branch pointer to point to anywhere in the commit tree.</p>
-<p>In this case we want to back greet up to the point prior to the merge with master.  We need to find the last commit before the merge.</p>
+<p>Let&#8217;s go back in time on the greet branch to the point <em>before</em> we merged main onto it.  We can <strong>reset</strong> a branch to any commit we want. Essentially this is modifying the branch pointer to point to anywhere in the commit tree.</p>
+<p>In this case we want to back greet up to the point prior to the merge with main.  We need to find the last commit before the merge.</p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git checkout greet
 git hist</pre>
@@ -108,10 +108,10 @@ git hist</pre>
 <pre class="sample">$ git checkout greet
 Already on 'greet'
 $ git hist
-*   ca11819 2019-06-27 | Merged master fixed conflict. (HEAD -&gt; greet) [Halle Bot]
+*   ca11819 2019-06-27 | Merged main fixed conflict. (HEAD -&gt; greet) [Halle Bot]
 |\  
-| * 3c663d0 2019-06-27 | Made interactive (master) [Halle Bot]
-* |   8c53c97 2019-06-27 | Merge branch 'master' into greet [Halle Bot]
+| * 3c663d0 2019-06-27 | Made interactive (main) [Halle Bot]
+* |   8c53c97 2019-06-27 | Merge branch 'main' into greet [Halle Bot]
 |\ \  
 | |/  
 | * 3aa3064 2019-06-27 | Added README [Halle Bot]
@@ -139,7 +139,7 @@ HEAD is now at f52644d Updated package
 <pre class="instructions">git hist --all</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist --all
-* 3c663d0 2019-06-27 | Made interactive (master) [Halle Bot]
+* 3c663d0 2019-06-27 | Made interactive (main) [Halle Bot]
 * 3aa3064 2019-06-27 | Added README [Halle Bot]
 | * f52644d 2019-06-27 | Updated package (HEAD -&gt; greet) [Halle Bot]
 | * 455c54f 2019-06-27 | Hello uses Greeter [Halle Bot]

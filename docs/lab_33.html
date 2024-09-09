@@ -59,16 +59,16 @@
   <li id="lab_21_link"><a href="lab_21.html">More Structure</a></li>
   <li id="lab_22_link"><a href="lab_22.html">Creating a Branch</a></li>
   <li id="lab_23_link"><a href="lab_23.html">Navigating Branches</a></li>
-  <li id="lab_24_link"><a href="lab_24.html">Changes in Master</a></li>
+  <li id="lab_24_link"><a href="lab_24.html">Changes in Main</a></li>
   <li id="lab_25_link"><a href="lab_25.html">Viewing Diverging Branches</a></li>
   <li id="lab_26_link"><a href="lab_26.html">Merging</a></li>
   <li id="lab_27_link"><a href="lab_27.html">Creating a Conflict</a></li>
   <li id="lab_28_link"><a href="lab_28.html">Resolving Conflicts</a></li>
   <li id="lab_29_link"><a href="lab_29.html">Rebasing VS Merging</a></li>
   <li id="lab_30_link"><a href="lab_30.html">Resetting the Greet Branch</a></li>
-  <li id="lab_31_link"><a href="lab_31.html">Resetting the Master Branch</a></li>
+  <li id="lab_31_link"><a href="lab_31.html">Resetting the Main Branch</a></li>
   <li id="lab_32_link"><a href="lab_32.html">Rebasing</a></li>
-  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Master</a></li>
+  <li id="lab_33_link"><a href="lab_33.html">Merging Back to Main</a></li>
   <li id="lab_34_link"><a href="lab_34.html">Multiple Repositories</a></li>
   <li id="lab_35_link"><a href="lab_35.html">Cloning Repositories</a></li>
   <li id="lab_36_link"><a href="lab_36.html">Review the Cloned Repository</a></li>
@@ -93,18 +93,18 @@
       </div>
 
       <div id="content" tabindex="-1">
-        <h1 class="lab_title"><em>lab 33</em>  Merging Back to Master</h1>
+        <h1 class="lab_title"><em>lab 33</em>  Merging Back to Main</h1>
 <h2>Goals</h2>
 <ul>
-	<li>We&#8217;ve kept our greet branch up to date with master (via rebase), now let&#8217;s merge the greet changes back into the master branch.</li>
+	<li>We&#8217;ve kept our greet branch up to date with main (via rebase), now let&#8217;s merge the greet changes back into the main branch.</li>
 </ul>
-<h2>Merge greet into master</h2>
+<h2>Merge greet into main</h2>
 <h3><b>Execute:</b></h3>
-<pre class="instructions">git checkout master
+<pre class="instructions">git checkout main
 git merge greet</pre>
 <h3><b>Output:</b></h3>
-<pre class="sample">$ git checkout master
-Switched to branch 'master'
+<pre class="sample">$ git checkout main
+Switched to branch 'main'
 $
 $ git merge greet
 Updating 3aa3064..c6d9ed3
@@ -115,14 +115,14 @@ Fast-forward
  3 files changed, 16 insertions(+), 3 deletions(-)
  create mode 100644 lib/greeter.js
 </pre>
-<p>Because the head of master is a direct ancestor of the head of the greet branch, git is able to do a fast-forward merge.  When fast-forwarding, the branch pointer is simply moved forward to point to the same commit as the greeter branch.</p>
+<p>Because the head of main is a direct ancestor of the head of the greet branch, git is able to do a fast-forward merge.  When fast-forwarding, the branch pointer is simply moved forward to point to the same commit as the greeter branch.</p>
 <p>There will never be conflicts in a fast-forward merge.</p>
 <h2>Review the logs</h2>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git hist</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git hist
-* c6d9ed3 2019-06-27 | Updated package (HEAD -&gt; master, greet) [Halle Bot]
+* c6d9ed3 2019-06-27 | Updated package (HEAD -&gt; main, greet) [Halle Bot]
 * 56af19d 2019-06-27 | Hello uses Greeter [Halle Bot]
 * 1e7679d 2019-06-27 | Added greeter class [Halle Bot]
 * 3aa3064 2019-06-27 | Added README [Halle Bot]
@@ -133,7 +133,7 @@ Fast-forward
 * 20a6c79 2019-06-27 | Added a default value (tag: v1-beta) [Halle Bot]
 * 6915d41 2019-06-27 | Using process.argv [Halle Bot]
 * 284070d 2019-06-27 | First Commit [Halle Bot]</pre>
-<p>The greet and master branches are now identical.</p>
+<p>The greet and main branches are now identical.</p>
         <nav class="foot-navigation">
       <a href="lab_32.html">
       <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>

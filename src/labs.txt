@@ -1289,7 +1289,7 @@ File: package.json
   "version": "1.0.0",
   "description": "Greet users from the command line",
   "scripts": {
-    "start": "node lib/hello.js"
+    "start": "node lib/start.js"
   }
 }
 EOF
@@ -1383,7 +1383,7 @@ File: package.json
   "version": "1.0.0",
   "description": "Greet users from the command line",
   "scripts": {
-    "start": "node lib/hello.js 'Halle Bot'"
+    "start": "node lib/start.js 'Halle Bot'"
   }
 }
 EOF

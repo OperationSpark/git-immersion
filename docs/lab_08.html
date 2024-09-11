@@ -99,7 +99,7 @@
 	<li>Learn how to commit changes to the repository</li>
 </ul>
 
-<h2>Committing u using an editor</h2>
+<h2>Committing using an editor</h2>
 <p>Ok, enough about staging.  Let&#8217;s commit what we have staged to the repository.</p>
 <p>When you used <code>git commit</code> previously to commit the initial version of the <code>hello.js</code> file to the repository, you included the <code>-m</code> flag that gave a comment on the command line.  The commit command will allow you to interactively edit a comment for the commit.</p>
 <p>If you omit the <code>-m</code> flag from the command line, git will pop you into the editor of your choice.  The editor is chosen from the following list (in priority order):</p>
@@ -128,6 +128,69 @@
 </pre>
 <p>The &#8220;Waiting for Vim&#8230;&#8221; line comes from the <code>vim</code> program which sends the file to a running vim program and waits for the file to be closed.  The rest of the output is the standard commit messages.</p>
 <p>Committing is the action of saving the changes to the repository.  It is like taking a snapshot of the changes.  You can always go back to this snapshot later.</p>
+<p>Previously, when committing the <code>hello.js</code> file, you entered the command <code>git commit -m &ldquo;Your commit message&rdquo;</code>. The <code>-m</code> flag will accept the commit message inline, within the &ldquo;double quotes&rdquo;. If you enter the command <code>git commit</code> without the <code>-m</code> flag, your default terminal editor will open </p>
+<p>If you omit the <code>-m</code> flag from the <code>git commit</code> command, git will open your default terminal editor.</p> 
+<p>The editor is chosen from the following list (in priority order):</p>
+<ul>
+  <li>GIT_EDITOR environment variable</li>
+	<li>core.editor configuration setting</li>
+	<li><span class="caps">VISUAL</span> environment variable</li>
+	<li><span class="caps">EDITOR</span> environment variable</li>
+</ul>
+<p>Here are some basic commands for vim:</p>
+        <table class="shortcuts">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>i</code></td>
+              <td>enters insert mode</td>
+            </tr>
+            <tr>
+              <td><code>Esc</code></td>
+              <td>exits insert mode</td>
+            </tr>
+            <tr>
+              <td><code>:</code></td>
+              <td>puts vim in command mode</td>
+            </tr>
+            <tr>
+              <td><code>w</code></td>
+              <td>writes the file</td>
+            </tr>
+            <tr>
+              <td><code>q</code></td>
+              <td>quits the editor</td>
+            </tr>
+            <tr>
+              <td><code>!</code></td>
+              <td>forces the editor to quit</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>To add a commit message, you would type <code>i</code> to enter insert mode, then type your message.</li>
+            <li>
+              To save and exit the file in vim, you would first press the
+              <code>esc</code> key, then type <code>:wq!</code> and press
+              Enter.
+            </li>
+            <li>
+              To exit without saving, you would type <code>:q!</code> and press
+              enter. The <code>!</code> forces the quit without saving.
+            </li>
+          </ul>
+<p>Once you have saved and exited the editor, you will see the commit message and the changes that were committed.</p>
+<pre class="sample">git commit
+  Waiting for Vim...
+  [master 569aa96] Using process.argv
+  1 files changed, 1 insertions(+), 1 deletions(-)
+</pre>
+<p>The &#8220;Waiting for Vim&#8230;&#8221; line comes from the <code>vim</code> program which sends the file to a running vim program and waits for the file to be closed.  The rest of the output is the standard commit messages.</p>
 
 <h2>Commit the change</h2>
 <p> For this assignment we will use the <code>-m</code> flag so that you can commit in the simulation terminal. So commit now and check the status.</p>
@@ -135,7 +198,6 @@
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git commit -m "Using process.argv"</pre>
 <pre class="instructions">git status</pre>
-</pre>
 <p>You should see &#8230;</p>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git status

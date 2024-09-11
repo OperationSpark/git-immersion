@@ -138,18 +138,6 @@
 	<li><span class="caps">EDITOR</span> environment variable</li>
 </ul>
 <p>Here are some basic commands for vim:</p>
-<ul>
-  <li>To add a commit message, you would type <code>i</code> to enter insert mode, then type your message.</li>
-          <li>
-            To save and exit the file in vim, you would first press the
-            <code>esc</code> key, then type <code>:wq!</code> and press
-            Enter.
-          </li>
-          <li>
-            To exit without saving, you would type <code>:q!</code> and press
-            enter. The <code>!</code> forces the quit without saving.
-          </li>
-        </ul>
         <table class="shortcuts">
           <thead>
             <tr>
@@ -158,6 +146,10 @@
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td><code>i</code></td>
+              <td>enters insert mode</td>
+            </tr>
             <tr>
               <td><code>Esc</code></td>
               <td>exits insert mode</td>
@@ -180,6 +172,18 @@
             </tr>
           </tbody>
         </table>
+        <ul>
+          <li>To add a commit message, you would type <code>i</code> to enter insert mode, then type your message.</li>
+            <li>
+              To save and exit the file in vim, you would first press the
+              <code>esc</code> key, then type <code>:wq!</code> and press
+              Enter.
+            </li>
+            <li>
+              To exit without saving, you would type <code>:q!</code> and press
+              enter. The <code>!</code> forces the quit without saving.
+            </li>
+          </ul>
 <p>Once you have saved and exited the editor, you will see the commit message and the changes that were committed.</p>
 <pre class="sample">git commit
   Waiting for Vim...

@@ -99,12 +99,17 @@
 	<li>Learn how to create a git repository from scratch.</li>
 </ul>
 <h2>Create a &#8220;Hello, World&#8221; program</h2>
-<p>Starting in the empty working directory, create an empty directory named &#8220;hello&#8221;, then create a file named <code>hello.js</code> with the contents below.</p>
+<p>Starting in the empty working directory, create an empty directory named &#8220;hello&#8221;, then create two files named <code>hello.js</code> and <code>start.js</code> with the contents below.</p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">mkdir hello
 cd hello</pre>
 <h3 class="file-heading"><em>hello.js</em></h3>
 <pre class="file">console.log("Hello, World");
+</pre>
+<h3 class="file-heading"><em>start.js</em></h3>
+<pre class="file">const { sayHello } = require('./hello');
+
+  sayHello();
 </pre>
 <h2>Create the Repository</h2>
 <p>You now have a directory with a single file.  To create a git repository from that directory, run the git init command.</p>
@@ -118,14 +123,17 @@ Initialized empty Git repository in /Users/opsparkowl/Documents/opspark/dev_shop
 <p>Now let&#8217;s add the &#8220;Hello, World&#8221; program to the repository.</p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git add hello.js
+git add start.js
 git commit -m "First Commit"</pre>
 <p>You should see &#8230;</p>
 <h3><b>Output:</b></h3>
 <pre class="sample">$ git add hello.js
+$ git add start.js
 $ git commit -m "First Commit"
 [main (root-commit) 284070d] First Commit
- 1 file changed, 1 insertion(+)
+ 2 files changed, 2 insertion(+)
  create mode 100644 hello.js
+ create mode 100644 start.js
 </pre>
         <nav class="foot-navigation">
       <a href="lab_02.html">

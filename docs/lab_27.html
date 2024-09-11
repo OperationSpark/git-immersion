@@ -105,13 +105,14 @@
 <h3 class="file-heading"><em>lib/hello.js</em></h3>
 <pre class="file">const rl = require('readline').createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-rl.question(`What's your name`, (myName) =&gt; {
-  console.log(`Hello ${myName}!`)
-  rl.close();
-});
+module.exports.sayHello = () => {
+  rl.question(`What's your name? `, (name) => {
+    console.log(`Hello ${name}!`);
+  });
+};
 </pre>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git add lib/hello.js

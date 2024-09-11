@@ -98,10 +98,40 @@
 <ul>
 	<li>Learn how to commit changes to the repository</li>
 </ul>
-<h2>Commit the change</h2>
+
+<h2>Committing using an editor</h2>
 <p>Ok, enough about staging.  Let&#8217;s commit what we have staged to the repository.</p>
+<p>When you used <code>git commit</code> previously to commit the initial version of the <code>hello.js</code> file to the repository, you included the <code>-m</code> flag that gave a comment on the command line.  The commit command will allow you to interactively edit a comment for the commit.</p>
+<p>If you omit the <code>-m</code> flag from the command line, git will pop you into the editor of your choice.  The editor is chosen from the following list (in priority order):</p>
+<ul>
+  <li>GIT_EDITOR environment variable</li>
+	<li>core.editor configuration setting</li>
+	<li><span class="caps">VISUAL</span> environment variable</li>
+	<li><span class="caps">EDITOR</span> environment variable</li>
+</ul>
+<p>I have the <span class="caps">EDITOR</span> variable set to <code>vim</code>. Here's an example of what that would look like:</p>
+<pre class="sample">|
+  # Please enter the commit message for your changes. Lines starting
+  # with '#' will be ignored, and an empty message aborts the commit.
+  # On branch master
+  # Changes to be committed:
+  #   (use "git reset HEAD &lt;file&gt;..." to unstage)
+  #
+  #	modified:   hello.js
+  #
+</pre>
+<p>On the first line, you would enter the commit message for example: &#8220;Using process.argv&#8221;.  Save the file and exit the editor.  You then would see:</p>
+<pre class="sample">git commit
+  Waiting for Vim...
+  [master 569aa96] Using process.argv
+  1 files changed, 1 insertions(+), 1 deletions(-)
+</pre>
+<p>The &#8220;Waiting for Vim&#8230;&#8221; line comes from the <code>vim</code> program which sends the file to a running vim program and waits for the file to be closed.  The rest of the output is the standard commit messages.</p>
 <p>Committing is the action of saving the changes to the repository.  It is like taking a snapshot of the changes.  You can always go back to this snapshot later.</p>
-<p>So commit now and check the status.</p>
+
+<h2>Commit the change</h2>
+<p> For this assignment we will use the <code>-m</code> flag so that you can commit in the simulation terminal. So commit now and check the status.</p>
+
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git commit -m "Using process.argv"</pre>
 <pre class="instructions">git status</pre>

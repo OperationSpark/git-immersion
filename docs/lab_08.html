@@ -140,9 +140,46 @@
 <p>Here are some basic commands for vim:</p>
 <ul>
   <li>To add a commit message, you would type <code>i</code> to enter insert mode, then type your message.</li>
-  <li>To save and exit the file in vim, you would type <code>:wq</code> and press enter.  The <code>:</code> puts vim in command mode, the <code>w</code> writes the file, and the <code>q</code> quits the editor.</li>
-  <li>To exit without saving, you would type <code>:q!</code> and press enter.  The <code>!</code> forces the quit without saving.</li>
-</ul>
+          <li>
+            To save and exit the file in vim, you would first press the
+            <code>Escape</code> key, then type <code>:wq!</code> and press
+            Enter.
+          </li>
+          <li>
+            To exit without saving, you would type <code>:q!</code> and press
+            enter. The <code>!</code> forces the quit without saving.
+          </li>
+        </ul>
+        <table class="shortcuts">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Esc</code></td>
+              <td>exits insert mode</td>
+            </tr>
+            <tr>
+              <td><code>:</code></td>
+              <td>puts vim in command mode</td>
+            </tr>
+            <tr>
+              <td><code>w</code></td>
+              <td>writes the file</td>
+            </tr>
+            <tr>
+              <td><code>q</code></td>
+              <td>quits the editor</td>
+            </tr>
+            <tr>
+              <td><code>!</code></td>
+              <td>forces the editor to quit</td>
+            </tr>
+          </tbody>
+        </table>
 <p>Once you have saved and exited the editor, you will see the commit message and the changes that were committed.</p>
 <pre class="sample">git commit
   Waiting for Vim...
